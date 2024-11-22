@@ -3,28 +3,28 @@ session_start();
 include_once "../settings/connection.php";
 $conn = get_connection();
 
-if($_SERVER["REQUEST_METHOD"]=="POST") {
-    $fName = mysqli_real_escape_string($conn, $_POST['fname']);
-    $lName = mysqli_real_escape_string($conn, $_POST['lname']);
+if ($_SERVER["REQUEST_METHOD"]=="POST") {
+    $email= mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
-    $select_query = "SELECT * FROM user WHERE fName='$fName' AND lName='$lName'";
+    $select_query = "SELECT * FROM users WHERE email='$email'";
 
     $result = mysqli_query($conn, $select_query);
 
-    if (mysqli_num_rows($result)==0){
+    if (mysqli_num_rows($result)==0) {
         echo "You are not registered with us";
+        delayedRedirect('../login.php', 2);
+        exit();
+    }
+
+    $rows = mysqli_fetch_assoc($result);
+    if (password_verify($password, $rows['password'])) {
+        $_SESSION['username'] = $rows['fName'] . " " . $rows["lName"];
+        $_SESSION['role'] = $rows['role'];
+
+        header("Location: ../views/customer/customer_dashboard.php");
     } else {
-        $rows = mysqli_fetch_assoc($result);
-        $security_measure = password_hash($password, PASSWORD_BCRYPT);
-        if($security_measure === $rows['password']){
-            $_SESSION['username'] = $rows['uname'];
-            $_SESSION['email'] = $rows['email'];
-            $_SESSION['password'] = $rows['password'];
-            
-            header("Location: ../customer/customer_dashboard.php");
-        } else {
-            echo "Incorrect username or password. Please try again";
-        }
-    
+        echo "Incorrect username or password. Please try again";
+        header('refresh:2;url=../login.php');
+        exit();
     }
 }
