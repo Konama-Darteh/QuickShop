@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/sales_dashboard.css">
+    <link rel="stylesheet" href="../../css/sales_dashboard.css">
     <title>Sales Dashboard</title>
 </head>
 <body>
@@ -11,10 +11,10 @@
         <h1>Welcome, Sales Personnel</h1>
     </header>
     <nav>
-        <a href="view_orders.php">View Orders</a>
-        <a href="update_order.php">Update Order Status</a>
-        <a href="browse_products.php">View Products</a>
-        <a href="logout.php">Logout</a>
+        <a href="./view_orders.php">View Orders</a>
+        <a href="./update_order.php">Update Order Status</a>
+        <a href="./browse_products.php">View Products</a>
+        <a href="../../logout.php">Logout</a>
     </nav>
     <main>
         <section>

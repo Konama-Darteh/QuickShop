@@ -1,5 +1,5 @@
 <?php
-include_once "../SETTINGS/connection.php";
+include_once "../../settings/connection.php";
 
 $conn = get_connection();
 
@@ -7,7 +7,7 @@ session_start();
 
 // Redirect if not logged in as admin
 if (!isset($_SESSION['admin_logged_in'])) {
-    header("Location: ../login.php");
+    header("Location: ../../login.php");
     exit();
 }
 
@@ -50,7 +50,7 @@ $users = $pdo->query("SELECT * FROM users")->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Users</title>
-    <link rel="stylesheet" href="../CSS/manage_user.css">
+    <link rel="stylesheet" href="../../css/manage_user.css">
 </head>
 <body>
     <div class="admin-dashboard">

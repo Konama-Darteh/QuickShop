@@ -11,10 +11,10 @@
         <h1>Welcome, Administrator</h1>
     </header>
     <nav>
-        <a href="manage_users.php">Manage Users</a>
-        <a href="manage_products.php">Manage Products</a>
-        <a href="view_orders.php">View All Orders</a>
-        <a href="logout.php">Logout</a>
+        <a href="./manage_users.php">Manage Users</a>
+        <a href="./manage_products.php">Manage Products</a>
+        <a href="./view_orders.php">View All Orders</a>
+        <a href="../../logout.php">Logout</a>
     </nav>
     <main>
         <section>
