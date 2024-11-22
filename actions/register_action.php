@@ -1,5 +1,5 @@
 <?php
-include_once "../SETTINGS/connection.php";
+include_once "../settings/connection.php";
 
 $conn = get_connection();
 
@@ -12,24 +12,18 @@ function delayedRedirect($link, $time) {
 }
 
 if($_SERVER["REQUEST_METHOD"]=="POST") {
-    $uname = mysqli_real_escape_string($conn, $_POST['username']);
+    $fname = mysqli_real_escape_string($conn, $_POST['fname']);
+    $lname = mysqli_real_escape_string($conn, $_POST['lname']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
-    $security_measure = hash("sha256", $password);
-    $insert_query = "INSERT INTO user(fname,lname, email, `password`) values('$fname', '$lname', '$email', '$password')";
-
-
-    // check if username already exists
-    $check_username_query = "SELECT * FROM user WHERE uname = '$uname'";
-    $check_result = mysqli_query($conn, $check_username_query);
+    $hashed_passwd = password_hash($password, PASSWORD_BCRYPT);
+    $insert_query = "INSERT INTO users(fName,lName, email, `password`, role) values('$fname', '$lname', '$email', '$hashed_passwd', 'customer')";
 
     //check is user already exists
-    $check_email_query = "SELECT * FROM user WHERE email = '$email'";
+    $check_email_query = "SELECT * FROM users WHERE email = '$email'";
     $check_email_result = mysqli_query($conn, $check_email_query);
 
-    if (mysqli_num_rows($check_result) > 0){
-        echo "Username unavailable. Please try again";
-    } elseif (mysqli_num_rows($check_email_result) > 0){
+    if (mysqli_num_rows($check_email_result) > 0){
         echo "You are already registered.";
         delayedRedirect('../login.php', 5);
     }
@@ -37,7 +31,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
         //execute query
         $result = mysqli_query($conn, $insert_query);
     }
-    
+
     if($result) {
         echo "Registration successful. Redirecting in 5 seconds...";
         delayedRedirect('../login.php', 5);
