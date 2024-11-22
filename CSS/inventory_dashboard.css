@@ -1,0 +1,35 @@
+body {
+    font-family: 'Verdana', sans-serif;
+    background: #faf3e0;
+    color: #5a4332;
+    margin: 0;
+}
+header {
+    background: #e2a876;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+nav {
+    background: #b56b45;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+main {
+    padding: 20px;
+}
+section {
+    background: #fde7ce;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}

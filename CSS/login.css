@@ -1,0 +1,78 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #FFF4E0; /* Soft warm beige */
+    color: #4A2E2A; /* Warm brown for text */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Form Container */
+form {
+    background-color: #FFD7BA; /* Light peach tone */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+/* Input Fields */
+form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #E9A178; /* Warm orange tone */
+    border-radius: 5px;
+    background-color: #FFEEDD; /* Light cream */
+    font-size: 0.9rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Submit Button */
+form input[type="submit"] {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #E38B29; /* Rich orange tone */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #C76A21; /* Slightly darker orange */
+}
+
+/* Link and Additional Text */
+form p {
+    font-size: 0.85rem;
+    margin-top: 1rem;
+}
+
+form a {
+    text-decoration: none;
+    color: #B25835; /* Earthy red tone */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+form a:hover {
+    color: #9C3E1B; /* Darker red */
+}
