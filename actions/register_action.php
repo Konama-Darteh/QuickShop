@@ -25,7 +25,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
 
     if (mysqli_num_rows($check_email_result) > 0){
         echo "You are already registered.";
-        delayedRedirect('../login.php', 5);
+        delayedRedirect('../login.php', 2);
     }
     else {
         //execute query
@@ -33,9 +33,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST") {
     }
 
     if($result) {
-        echo "Registration successful. Redirecting in 5 seconds...";
-        delayedRedirect('../login.php', 5);
-    } else {
-        echo "Error: " . $conn->error;
+        echo "Registration successful. Redirecting in 2 seconds...";
+        delayedRedirect('../login.php', 2);
     }
 }
