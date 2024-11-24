@@ -21,7 +21,22 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
         $_SESSION['username'] = $rows['fName'] . " " . $rows["lName"];
         $_SESSION['role'] = $rows['role'];
 
-        header("Location: ../views/customer/customer_dashboard.php");
+        switch($rows['role']){
+            case 'Admin':
+                header("Location: ../views/admin/admin.php");
+                break;
+            case 'Inventory Manager':
+                header("Location: ../views/inventory/inventory.php");
+                break;
+            case 'Sales Personnel':
+                header("Location: ../views/sales/sales.php");
+                break;
+            case 'Customer':
+                header("Location: ../views/customer/customer.php");
+                break;
+        }
+
+        // header("Location: ../views/customer/customer_dashboard.php");
     } else {
         echo "Incorrect username or password. Please try again";
         header('refresh:2;url=../login.php');
