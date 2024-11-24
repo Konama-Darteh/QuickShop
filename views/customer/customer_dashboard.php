@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +12,7 @@
 </head>
 <body>
     <header>
-        <h1>Welcome, Customer</h1>
+        <h1>Welcome, <?php echo $_SESSION['username']; ?></h1>
     </header>
     <nav>
         <a href="./browse_products.php">Browse Products</a>
