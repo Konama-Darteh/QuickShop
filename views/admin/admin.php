@@ -1,3 +1,8 @@
+<?php
+  include_once __DIR__ . "../../actions/get_users.php";
+  $var_data = get_all();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,7 +132,6 @@
       <table>
         <thead>
           <tr>
-            <th>UserID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Role</th>
@@ -135,31 +139,26 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>John Doe</td>
-            <td>johndoe@example.com</td>
-            <td>Administrator</td>
+          <?php foreach ($var_data as $var_row): ?>
+            <tr>
+            <td> <?php echo $var_row['fName'] . ' ' . $var_row['lName'] ?></td>
+            <td> <?php echo $var_row['email'] ?></td>
+            <td> <?php echo $var_row['role'] ?></td>
             <td>
-              <button>Edit</button>
-              <button>Delete</button>
+                <a href="#">
+                <button href="edit_chore_view.php">Edit</button>
+                </a>
+
+                <a href="#">
+                <button href="../actions/delete_chore_action.php">Delete</button>
+                </a>
             </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jane Smith</td>
-            <td>janesmith@example.com</td>
-            <td>Inventory Manager</td>
-            <td>
-              <button>Edit</button>
-              <button>Delete</button>
-            </td>
-          </tr>
+        </tr>
+          <?php endforeach; ?>
         </tbody>
       </table>
       <button>Add New User</button>
     </div>
-
     <!-- Product Management Section -->
     <div id="products" class="tab">
       <h2>Manage Products</h2>
