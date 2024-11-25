@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
     if (password_verify($password, $rows['password'])) {
         $_SESSION['username'] = $rows['fName'] . " " . $rows["lName"];
         $_SESSION['role'] = $rows['role'];
+        $_SESSION['userID'] = $rows['userID'];
 
         switch($rows['role']){
             case 'Admin':

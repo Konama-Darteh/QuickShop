@@ -1,18 +1,9 @@
 <?php
-  // Start the session
-if (session_status() == PHP_SESSION_NONE) {
-  session_start();
-}
-
-// Example: Set a sample UserID if not already set (for testing purposes)
-if (!isset($_SESSION['UserID'])) {
-  $_SESSION['UserID'] = 1; // Replace 1 with the actual UserID of the logged-in user
-}
-  
-  
-  include "../actions/get_users.php";
-  include "../actions/get_products.php";
-  include "../actions/get_orders.php";
+include "../actions/get_users.php";
+include "../actions/get_products.php";
+include "../actions/get_orders.php";
+include "../settings/core.php";
+checkLogin();
 
   $var_data = get_all();
   $var_products = get_all_products();

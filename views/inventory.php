@@ -2,6 +2,8 @@
   include "../actions/get_users.php";
   include "../actions/get_products.php";
   include "../actions/get_orders.php";
+  include "../settings/core.php";
+  checkLogin();
 
   $var_data = get_all();
   $var_products = get_all_products();
