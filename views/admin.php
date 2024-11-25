@@ -112,7 +112,7 @@
 <body>
   <header>
     <h1>    Welcome, Administrator! <br> </h1>
-     <h3>Select an option from the menu to get started.</h3> 
+     <h3>Select an option from the menu to get started.</h3>
   </header>
 
   <!-- <div class="welcome-message">
@@ -125,6 +125,7 @@
     <a href="#" onclick="showTab('users')"> Users</a>
     <a href="#" onclick="showTab('products')"> Products</a>
     <a href="#" onclick="showTab('orders')"> Orders</a>
+    <a href="../actions/logout.php">Logout</a>
   </nav>
 
   <div class="container">

@@ -24,16 +24,16 @@ if ($_SERVER["REQUEST_METHOD"]=="POST") {
 
         switch($rows['role']){
             case 'Admin':
-                header("Location: ../views/admin/admin.php");
+                header("Location: ../views/admin.php");
                 break;
             case 'Inventory Manager':
-                header("Location: ../views/inventory/inventory.php");
+                header("Location: ../views/inventory.php");
                 break;
             case 'Sales Personnel':
-                header("Location: ../views/sales/sales.php");
+                header("Location: ../views/sales.php");
                 break;
             case 'Customer':
-                header("Location: ../views/customer/customer.php");
+                header("Location: ../views/customer.php");
                 break;
         }
 
