@@ -1,6 +1,12 @@
 <?php
-  include_once __DIR__ . "../../actions/get_users.php";
+  include "../actions/get_users.php";
+  include "../actions/get_products.php";
+  include "../actions/get_orders.php";
+
   $var_data = get_all();
+  $var_products = get_all_products();
+  $var_orders = get_all_orders();
+  $var_order_details = get_all_order_details();
 ?>
 
 <!DOCTYPE html>
@@ -159,6 +165,9 @@
       </table>
       <button>Add New User</button>
     </div>
+
+
+
     <!-- Product Management Section -->
     <div id="products" class="tab">
       <h2>Manage Products</h2>
@@ -174,32 +183,30 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>101</td>
-            <td>Smartphone</td>
-            <td>Latest model smartphone</td>
-            <td>$699</td>
-            <td>50</td>
-            <td>
-              <button>Edit</button>
-              <button>Delete</button>
-            </td>
+          <?php foreach ($var_products as $var_row): ?>
+              <tr>
+              <td> <?php echo $var_row['prodID']?></td>
+              <td> <?php echo $var_row['prodName'] ?></td>
+              <td> <?php echo $var_row['prodDescription'] ?></td>
+              <td> <?php echo $var_row['price'] ?></td>
+              <td> <?php echo $var_row['stockQuantity'] ?></td>
+              <td>
+                  <a href="#">
+                  <button href="edit_chore_view.php">Edit</button>
+                  </a>
+
+                  <a href="#">
+                  <button href="../actions/delete_chore_action.php">Delete</button>
+                  </a>
+              </td>
           </tr>
-          <tr>
-            <td>102</td>
-            <td>Vacuum Cleaner</td>
-            <td>High-power vacuum</td>
-            <td>$120</td>
-            <td>30</td>
-            <td>
-              <button>Edit</button>
-              <button>Delete</button>
-            </td>
-          </tr>
+            <?php endforeach; ?>
         </tbody>
       </table>
       <button>Add New Product</button>
     </div>
+
+
 
     <!-- Order Management Section -->
     <div id="orders" class="tab">
@@ -215,26 +222,56 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>5001</td>
-            <td>2024-11-20</td>
-            <td>John Doe</td>
-            <td>$200</td>
-            <td>
-              <button>View</button>
-              <button>Delete</button>
-            </td>
+        <?php foreach ($var_orders as $var_row): ?>
+              <tr>
+              <td> <?php echo $var_row['OrderID']?></td>
+              <td> <?php echo $var_row['Date'] ?></td>
+              <td> <?php echo $var_row['UserID'] ?></td>
+              <td> <?php echo $var_row['TotalAmount'] ?></td>
+              <td>
+                  <a href="#">
+                  <button href="edit_chore_view.php">Edit</button>
+                  </a>
+
+                  <a href="#">
+                  <button href="../actions/delete_chore_action.php">Delete</button>
+                  </a>
+              </td>
           </tr>
+            <?php endforeach; ?>
+        </tbody>
+      </table>
+
+      <h2>Order Details</h2>
+      <table>
+        <thead>
           <tr>
-            <td>5002</td>
-            <td>2024-11-21</td>
-            <td>Jane Smith</td>
-            <td>$150</td>
-            <td>
-              <button>View</button>
-              <button>Delete</button>
-            </td>
+            <th>OrderDetailID</th>
+            <th>OrderID</th>
+            <th>ProductID</th>
+            <th>Quantity</th>
+            <th>Price</th>
           </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($var_order_details as $var_row): ?>
+              <tr>
+              <td> <?php echo $var_row['OrderDetailID']?></td>
+              <td> <?php echo $var_row['OrderID'] ?></td>
+              <td> <?php echo $var_row['ProductID'] ?></td>
+              <td> <?php echo $var_row['Quantity'] ?></td>
+              <td> <?php echo $var_row['Price'] ?></td>
+              <td>
+                  <a href="#">
+                  <button href="edit_chore_view.php">Edit</button>
+                  </a>
+
+                  <a href="#">
+                  <button href="../actions/delete_chore_action.php">Delete</button>
+                  </a>
+              </td>
+          </tr>
+            <?php endforeach; ?>
         </tbody>
       </table>
     </div>
