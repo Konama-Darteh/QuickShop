@@ -20,6 +20,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `issdb`
 --
+DROP DATABASE IF EXISTS issdb;
+CREATE DATABASE issdb;
+USE issdb;
 
 -- --------------------------------------------------------
 
