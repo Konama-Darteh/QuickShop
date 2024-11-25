@@ -9,7 +9,7 @@ function validateForm() {
   const passwordRegex =
     /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,15}$/;
 
-  // Validate username
+  // Validate email
   if (!emailRegex.test(email.value)) {
     alert("Invalid email, try again.");
     email.focus();
