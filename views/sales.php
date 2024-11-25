@@ -1,3 +1,14 @@
+<?php
+  include "../actions/get_users.php";
+  include "../actions/get_products.php";
+  include "../actions/get_orders.php";
+
+  $var_data = get_all();
+  $var_products = get_all_products();
+  $var_orders = get_all_orders();
+  $var_order_details = get_all_order_details();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -120,32 +131,28 @@
           <tr>
             <th>OrderID</th>
             <th>Date</th>
-            <th>Customer</th>
+            <th>CustomerID</th>
             <th>Total Amount</th>
             <th>Actions</th>
           </tr>
-        </thead>
         <tbody>
-          <tr>
-            <td>5001</td>
-            <td>2024-11-20</td>
-            <td>John Doe</td>
-            <td>$200</td>
-            <td>
-              <button>View Details</button>
-              <button>Update</button>
-            </td>
-          </tr>
-          <tr>
-            <td>5002</td>
-            <td>2024-11-21</td>
-            <td>Jane Smith</td>
-            <td>$150</td>
-            <td>
-              <button>View Details</button>
-              <button>Update</button>
-            </td>
-          </tr>
+        <?php foreach ($var_orders as $var_row): ?>
+            <tr>
+              <td> <?php echo $var_row['OrderID']?></td>
+              <td> <?php echo $var_row['Date'] ?></td>
+              <td> <?php echo $var_row['UserID'] ?></td>
+              <td> <?php echo $var_row['TotalAmount'] ?></td>
+              <td>
+                  <a href="#">
+                  <button href="edit_chore_view.php">Process</button>
+                  </a>
+
+                  <a href="#">
+                  <button href="../actions/delete_chore_action.php">Delete</button>
+                  </a>
+              </td>
+            </tr>
+          <?php endforeach; ?>
         </tbody>
       </table>
     </div>
@@ -164,23 +171,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>101</td>
-            <td>Smartphone</td>
-            <td>Latest model smartphone</td>
-            <td>$699</td>
-            <td>50</td>
+        <?php foreach ($var_products as $var_row): ?>
+            <tr>
+              <td> <?php echo $var_row['prodID'] ?></td>
+              <td> <?php echo $var_row['prodName'] ?></td>
+              <td> <?php echo $var_row['prodDescription'] ?></td>
+              <td> <?php echo $var_row['price'] ?></td>
+              <td> <?php echo $var_row['stockQuantity'] ?></td>
           </tr>
-          <tr>
-            <td>102</td>
-            <td>Vacuum Cleaner</td>
-            <td>High-power vacuum</td>
-            <td>$120</td>
-            <td>30</td>
-          </tr>
+            <?php endforeach; ?>
         </tbody>
       </table>
     </div>
   </div>
 </body>
 </html>
+
