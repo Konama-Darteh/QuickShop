@@ -123,6 +123,7 @@ checkLogin();
     <a href="#" onclick="showTab('browseProducts')">Browse Products</a>
     <a href="#" onclick="showTab('viewOrders')">View Order History</a>
     <a href="#" onclick="showTab('updateInfo')">Update Information</a>
+    <a href="../actions/logout.php">Logout</a>
   </nav>
 
   <div class="container">
@@ -182,13 +183,13 @@ checkLogin();
       <form>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
-        
+
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
-        
+
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" placeholder="Enter new password" required><br><br>
-        
+
         <button type="submit">Update Information</button>
       </form>
     </div>
