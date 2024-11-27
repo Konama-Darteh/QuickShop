@@ -1,4 +1,5 @@
 <?php
+  // include "../actions/delete_entry.php";
   include "../actions/get_users.php";
   include "../actions/get_products.php";
   include "../actions/get_orders.php";
@@ -154,12 +155,12 @@
             <td> <?php echo $var_row['email'] ?></td>
             <td> <?php echo $var_row['role'] ?></td>
             <td>
-                <a href="#">
+                <!-- <a href="../actions/delete_entry.php?id=<?php echo $var_row['userID']; ?>"> -->
                 <button href="edit_chore_view.php">Edit</button>
                 </a>
 
-                <a href="#">
-                <button href="../actions/delete_chore_action.php">Delete</button>
+                <a href="../actions/delete_entry.php?id=<?php echo $var_row['userID']; ?>">
+                <button href="../actions/delete_entry.php">Delete</button>
                 </a>
             </td>
         </tr>
@@ -168,8 +169,6 @@
       </table>
       <button>Add New User</button>
     </div>
-
-
 
     <!-- Product Management Section -->
     <div id="products" class="tab">
